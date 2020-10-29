@@ -1,6 +1,6 @@
 # MyCodeLib
 
-- [python 邮件发送](#python Email Sending)
+- [python Email Sending](#python Email Sending)
     + [起因](#起因)
     + [简单说明](#简单说明)
     + [其他](#其他)
