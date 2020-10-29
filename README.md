@@ -1,8 +1,6 @@
 # MyCodeLib
 
-
-[toc]
-
+[TOC]
 
 
 ## python 邮件发送
