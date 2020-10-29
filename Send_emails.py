@@ -70,6 +70,7 @@ def draw_(epoch, acc=np.array([]), loss=np.array([]), title='test',):
         fig_name = './acc_'+str(epoch)+'.jpg'
         fig = plt.gcf()
         fig.savefig(fig_name,dpi=600)
+        plt.close(fig)
 
         add=fig_name
 
