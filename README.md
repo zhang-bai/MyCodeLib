@@ -1,12 +1,12 @@
 # MyCodeLib
 
-- [python 邮件发送](#python-----)
-    + [起因](#--)
-    + [简单说明](#----)
-    + [其他](#--)
+- [python 邮件发送](#python Email Sending)
+    + [起因](#起因)
+    + [简单说明](#简单说明)
+    + [其他](#其他)
 
 
-## python 邮件发送
+## python Email Sending
 
 #### 起因
 
