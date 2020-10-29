@@ -1,7 +1,11 @@
 # MyCodeLib
 
-[TOC]
+- [python 邮件发送](#python-----)
+    + [起因](#--)
+    + [简单说明](#----)
+    + [其他](#--)
 
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## python 邮件发送
 
