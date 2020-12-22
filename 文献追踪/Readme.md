@@ -1,12 +1,14 @@
----
-typora-copy-images-to: img
----
+
 
 记录一些前沿文献
 
 
 
-[toc]
+[Graph Augmentation](#Graph Augmentation)
+
++ [Data Augmentation for Graph Neural Networks  AAAI 2021](#[Data Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740))
+
+
 
 
 
@@ -14,9 +16,9 @@ typora-copy-images-to: img
 
 
 
-###  - [Data Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740)
+###  [Data Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740)
 
-[1](./papers/Data Augmentation for Graph Neural Networks.pdf)
+[原文](./papers/Data Augmentation for Graph Neural Networks.pdf)
 
 图增强，主要研究增减边对图数据的影响
 
