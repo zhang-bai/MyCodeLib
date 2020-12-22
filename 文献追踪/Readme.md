@@ -4,9 +4,9 @@
 
 
 
-[Graph Augmentation](#Graph Augmentation)
+[Graph Augmentation](#Graph-Augmentation)
 
-+ [Data Augmentation for Graph Neural Networks  AAAI 2021](#[Data Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740))
++ [Data Augmentation for Graph Neural Networks  AAAI 2021]([Data-Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740))
 
 
 
