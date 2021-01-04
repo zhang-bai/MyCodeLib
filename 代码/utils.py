@@ -4,6 +4,20 @@
         csc、csr、coo 稀疏格式转 torch.sparse格式
     2.load_gnn_data
         导入 gnn 的 Cora 、Citeseer 、 Pubmed数据集
+    3.re_process_adj
+        Gnn预处理邻接矩阵，提高稳定性
+    4.save_model_Pytorch
+        保存 Pytorch 模型
+    5.evaluate_Pytorch
+        求准确率 accuracy
+    6.save_csv
+        文件IO
+    7.save_pickle
+        保存字典等变量
+    8.early_stop
+        提前停止
+    9.cos_similarity
+        求余弦相似度
 """
 
 
@@ -129,3 +143,112 @@ def load_gnn_data(data_path, dataset_str):
     return adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask, idx_train, idx_test, idx_val
 
 
+def pre_process_adj(adj):
+    import numpy as np
+    import scipy.sparse as sp
+
+    def sparse_to_tuple(sparse_mx):
+        """Convert sparse matrix to tuple representation."""
+
+        def to_tuple(mx):
+            if not sp.isspmatrix_coo(mx):
+                mx = mx.tocoo()
+            coords = np.vstack((mx.row, mx.col)).transpose()
+            values = mx.data
+            shape = mx.shape
+            return coords, values, shape
+
+        if isinstance(sparse_mx, list):
+            for i in range(len(sparse_mx)):
+                sparse_mx[i] = to_tuple(sparse_mx[i])
+        else:
+            sparse_mx = to_tuple(sparse_mx)
+
+        return sparse_mx
+
+    def normalize_adj(adj):
+        """Symmetrically normalize adjacency matrix."""
+        adj = sp.coo_matrix(adj)
+        rowsum = np.array(adj.sum(1))
+        d_inv_sqrt = np.power(rowsum, -0.5).flatten()
+        d_inv_sqrt[np.isinf(d_inv_sqrt)] = 0.
+        d_mat_inv_sqrt = sp.diags(d_inv_sqrt)
+        return adj.dot(d_mat_inv_sqrt).transpose().dot(d_mat_inv_sqrt).tocoo()
+
+    def preprocess_adj(adj):
+        """Preprocessing of adjacency matrix for simple GCN model and conversion to tuple representation."""
+        adj_normalized = normalize_adj(adj + sp.eye(adj.shape[0]))
+        return sparse_to_tuple(adj_normalized)
+
+
+def save_model_Pytorch(model, save_path, Model_structure):
+    import torch
+
+    # 方法一， 仅保存模型参数
+    # 保存
+    torch.save(model.state_dict(), save_path+'\parameter.pkl')
+    # 加载
+    model = Model_structure()
+    model.load_state_dict(torch.load(save_path+'\parameter.pkl'))
+
+    # 方法二， 保存模型结构及参数
+    # 保存
+    torch.save(model, '\model.pkl')
+    # 加载
+    model = torch.load('\model.pkl')
+
+    # 方法三， 加载checkpoint
+    pass
+
+
+def evaluate_Pytorch():
+    pass
+
+
+def save_csv():
+    import numpy as np
+
+
+def save_pickle(data,file_name):
+    import pickle as pkl
+
+    with open(file_name+'_indices.pkl', "wb") as f:
+        pkl.dump(data, f)
+    # load
+    with open(file_name + '_indices.pkl', "rb") as f:
+        data2 = pkl.load(f)
+
+
+def early_stop():
+    #     if train_loss < best_loss:
+    #         if val_acc > best_val_acc:
+    #             best_val_acc = val_acc
+    #             best_acc = test_acc
+    #             best_epoch = epoch
+    #             best_loss = train_loss
+    #             count = 0
+    #     count += 1
+    #     if count > 500:
+    #         # print("best_epoch:{:d} | best_acc:{:.3f} | best_loss:{:.5f}".format(best_epoch,best_acc,best_loss))
+    #         break
+    # print("best_epoch:{:d} | best_loss:{:.5f} | best_acc:{:.3f}".format(best_epoch, best_loss, best_acc))
+    pass
+
+
+def cos_similarity(vector_a, vector_b):
+    import numpy as np
+    """
+    计算两个向量之间的余弦相似度
+    :param vector_a: 向量 a
+    :param vector_b: 向量 b
+    :return: sim
+    """
+    vector_a = np.mat(vector_a)
+    vector_b = np.mat(vector_b)
+    num = np.matmul(vector_a, vector_b.T)   # [140,1433] * [1433,1000] = [140,1000]
+    # np.linalg.norm(data,axis=1) 计算每一行的L2范数
+    denom = np.matmul(np.linalg.norm(vector_a, axis=1)[:, np.newaxis], np.linalg.norm(vector_b, axis=1)[np.newaxis, :])
+    cos = num / denom
+    sim = 0.5 + 0.5 * cos  # 将 cos 值 [-1,1] 归一化
+    # sim = cos
+    return sim
