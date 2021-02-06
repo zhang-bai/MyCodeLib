@@ -8,7 +8,7 @@
 
 + [Data Augmentation for Graph Neural Networks   AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
 + [Graph-Revised Convolutional Network   arXive 2020](#Graph-Revised-Convolutional-Network)
-+ [NodeAug: Semi-Supervised Node Classification with Data Augmentation    KDD2020](#NodeAug: Semi-Supervised-Node-Classification-with-Data-Augmentation)
++ [NodeAug: Semi-Supervised Node Classification with Data Augmentation    KDD2020](#NodeAug:-Semi-Supervised-Node-Classification-with-Data-Augmentation)
 
 
 
