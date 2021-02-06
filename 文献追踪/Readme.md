@@ -58,7 +58,7 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 
 對於adj預測，在密集图上进行了Knearest-neighbour（KNN）稀疏化处理：对于每个节点，我们将边缘保留为top-K预测分数。  KNN稀疏图的邻接矩阵，表示为S（K），
 
-![image-20201225000423647](img/image-20201225000423647.png)
+![image-20210206135153225](img/image-20210206135153225.png)
 
 
 
@@ -66,7 +66,7 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 
 
 
-![image-20201224234802772](./img/image-20201224234802772.png)
+![image-20210206135248939](img/image-20210206135248939.png)
 
 
 
@@ -75,3 +75,47 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 [原文](papers/NodeAug.pdf)
 
 暂无代码
+
+
+
+[整体结构](#整体结构)
+
+[主要机制](#主要机制)
+
+[replacing attributes](#replacing-attributes)
+
+[对比效果](#对比效果)
+
+
+
+#### **整体结构**
+
+
+
+
+
+
+
+
+
+#### **主要机制**
+
+- replacing attributes
+- removing edges
+- adding edges
+- subgraph mini-batch training
+
+![image-20210206134946562](img/image-20210206134946562.png)
+
+##### replacing attributes
+
+
+
+
+
+#### **对比效果**
+
+
+
+![image-20210206135412484](img/image-20210206135412484.png)
+
