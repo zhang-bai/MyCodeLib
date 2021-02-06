@@ -8,7 +8,7 @@
 
 + [Data Augmentation for Graph Neural Networks   AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
 + [Graph-Revised Convolutional Network   arXive 2020](#Graph-Revised-Convolutional-Network)
-+ [NodeAug: Semi-Supervised Node Classification with Data Augmentation   KDD2020](#NodeAug: Semi-Supervised-Node-Classification-with-Data-Augmentation)
++ [NodeAug: Semi-Supervised Node Classification with Data Augmentation   KDD2020](#NodeAug-Semi-Supervised-Node-Classification-with-Data-Augmentation)
 
 
 
@@ -70,7 +70,7 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 
 
 
-### [NodeAug: Semi-Supervised Node Classification with Data Augmentation](https://bhooi.github.io/papers/nodeaug_kdd20.pdf)
+### [NodeAug Semi-Supervised Node Classification with Data Augmentation](https://bhooi.github.io/papers/nodeaug_kdd20.pdf)
 
 [原文](./papers/NodeAug.pdf)
 
