@@ -24,7 +24,7 @@
 
 ###  [Data Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740)
 
-[原文](./papers/Data Augmentation for Graph Neural Networks.pdf)
+[原文](papers/Data Augmentation for Graph Neural Networks.pdf)
 
 [代码链接](https://github.com/zhao-tong/GAug)
 
@@ -50,7 +50,7 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 
 
 
-[原文](./papers/Graph-Revised Convolutional Network.pdf)
+[原文](papers/Graph-Revised Convolutional Network.pdf)
 
 [代码](https://github.com/Maysir/GRCN)
 
@@ -72,6 +72,6 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 
 ### [NodeAug Semi-Supervised Node Classification with Data Augmentation](https://bhooi.github.io/papers/nodeaug_kdd20.pdf)
 
-[原文](./papers/NodeAug.pdf)
+[原文](papers/NodeAug.pdf)
 
 暂无代码
