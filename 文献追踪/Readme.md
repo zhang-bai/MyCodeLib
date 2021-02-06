@@ -6,8 +6,9 @@
 
 [Graph Augmentation](#Graph-Augmentation)
 
-+ [Data Augmentation for Graph Neural Networks  AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
-+ [Graph-Revised Convolutional Network arXive 2020](#Graph-Revised Convolutional Network)
++ [Data Augmentation for Graph Neural Networks   AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
++ [Graph-Revised Convolutional Network   arXive 2020](#Graph-Revised-Convolutional-Network)
++ [NodeAug: Semi-Supervised Node Classification with Data Augmentation    KDD2020](#NodeAug: Semi-Supervised-Node-Classification-with-Data-Augmentation)
 
 
 
@@ -24,6 +25,8 @@
 ###  [Data Augmentation for Graph Neural Networks   AAAI 2021](https://arxiv.org/abs/2010.04740)
 
 [原文](./papers/Data Augmentation for Graph Neural Networks.pdf)
+
+[代码链接](https://github.com/zhao-tong/GAug)
 
 图增强，主要研究增减边对图数据的影响
 
@@ -43,13 +46,13 @@ Specifically, we discuss how facilitating message passing by removing “noisy�
 
 
 
-### Graph-Revised Convolutional Network
+### [Graph-Revised Convolutional Network](https://arxiv.org/abs/1911.07123)
 
 
 
-[原文](https://arxiv.org/abs/1911.07123)
+[原文](./papers/Graph-Revised Convolutional Network.pdf)
 
-https://github.com/Maysir/GRCN
+[代码](https://github.com/Maysir/GRCN)
 
 使用一個gcn作爲圖修正模快，一個gcn作爲圖分類模塊，
 
@@ -64,3 +67,11 @@ https://github.com/Maysir/GRCN
 
 
 ![image-20201224234802772](./img/image-20201224234802772.png)
+
+
+
+### [NodeAug: Semi-Supervised Node Classification with Data Augmentation](https://bhooi.github.io/papers/nodeaug_kdd20.pdf)
+
+[原文](./papers/NodeAug.pdf)
+
+暂无代码
