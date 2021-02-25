@@ -19,6 +19,17 @@
 
 
 
+[Graph Attack](#Graph Attack)
+
+- [Towards More Practical Adversarial Attacks on Graph Neural Networks    NIPS 2020](#Towards-More-Practical-Adversarial-Attacks-on-Graph-Neural-Networks)
+
+
+
+[Recommender Systems](#Recommender-Systems)
+
+- [Factorization Machines    2010 IEEE ICDM](#Factorization-Machines)
+- [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction    IJCAI2017](#DeepFM)
+
 
 
 
@@ -190,7 +201,7 @@ adding —— shearing and resizing, 改变卷积顺序
 
 
 
-#### **对比效果**
+#### 实验结果
 
 
 
@@ -225,3 +236,130 @@ adding —— shearing and resizing, 改变卷积顺序
 ### Invariant and Equivariant Graph Networks
 
 [原文](papers/Invariant-and-equivariant-graph.pdf)
+
+
+
+
+
+## Graph Attack
+
+
+
+### 背景知识
+
+- ##### **对抗攻击**（针对节点分类问题）
+
+  攻击分类：
+
+  - **Happen Time**
+
+    During model Training   ——   **poisoning**(中毒)
+
+    During model Testing     ——   **evasion**(逃避)
+
+  - **Aim**
+
+    Mislead the prediction on specific nodes ——    **targeted attack**
+
+    Damage the overall task performance 	 ——    **untargeted attack**
+
+  - **Attacker’s knowledge aobut the model**
+
+    **white-box attacks** —— full information（model parameters, input data, labels）
+
+    **grey-box attacks**—— partial information（the exact setups vary in a range）
+
+    **black-box**—— input data and sometimes the black-box predictions of the model
+
+    
+
+- ##### **Inductive Bias (归纳偏置)**
+
+  > 机器学习算法在学习过程中对某种假设（hypothesis）的偏好，称为“归纳偏好”（inductive bias），或简称为“偏好”
+
+  例如对一组数据进行拟合的曲线有无数种，其中有的比较“简单”（假设我们认为曲线更平滑意味着“更简单”），有的更复杂。例如一组可以用二次曲线来拟合的数据点，用更复杂的更高阶的曲线也可以拟合，那我们的模型应该选择哪条曲线/假设呢？这就是模型对假设的偏好问题。
+
+  > 所谓的inductive bias，指的是人类对世界的**先验知识**，对应在网络中就是**网络结构**。
+
+  归纳偏差有点像我们所说的先验（Prior），但是有点不同的是归纳偏差在学习的过程中不会更新，但是先验在学习后会不断地被更新。
+
+
+
+
+
+### Towards More Practical Adversarial Attacks on Graph Neural Networks
+
+[原文](papers/Towards-More-Practical-Adversarial-Attacks-on-Graph-Neural-Networks.pdf)
+
+[代码](https://github.com/Mark12Ding/GNN-Practical-Attack)
+
+#### **摘要**
+
+![image-20210220202349627](img/image-20210220202349627.png)
+
+#### 整体结构
+
+**GC-RWCS** (Greedily Corrected RWCS) strategy
+
+![image-20210220202702811](img/image-20210220202702811.png)
+
+
+
+#### 主要机制
+
+- [local constraint on node access](#local-constraint-on-node-access)
+- 
+
+利用下试代替loss的该变量，由白盒变为黑盒，使不包含y label
+$$
+\tilde \delta ^i =C\sum _{j=1} ^N (M^L )_{ji}
+$$
+小扰动，使用一阶泰勒展开近似
+
+
+
+
+
+##### local constraint on node access
+
+
+
+
+
+
+
+
+
+#### 实验结果
+
+![image-20210220203129010](img/image-20210220203129010.png)
+
+
+
+**实验设置：**
+
+![image-20210220203223115](img/image-20210220203223115.png)
+
+
+
+
+
+
+
+
+
+
+
+## Recommender Systems
+
+
+
+### Factorization Machines
+
+
+
+
+
+
+
+### DeepFM
