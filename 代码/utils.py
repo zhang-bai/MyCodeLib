@@ -18,6 +18,8 @@
         提前停止
     9.cos_similarity
         求余弦相似度
+    10.Sparse_dropout_pytorch
+        解决grad 变为Fasle问题
 """
 
 
@@ -252,3 +254,55 @@ def cos_similarity(vector_a, vector_b):
     sim = 0.5 + 0.5 * cos  # 将 cos 值 [-1,1] 归一化
     # sim = cos
     return sim
+
+
+def Sparse_dropout_pytorch():
+    import torch.nn as nn
+    """
+    class SparseDropout(nn.Module):
+
+    def __init__(self, p=0.5):
+        super(SparseDropout, self).__init__()
+        # p is ratio of dropout
+        # convert to keep probability
+        self.kprob = 1 - p
+
+    def forward(self, x):
+        if not self.training:
+            return x
+
+        mask = ((torch.rand(x._values().size()) + self.kprob).floor()).type(torch.bool)
+        rc = x._indices()[:, mask]
+        val = x._values()[mask] * (1.0 / self.kprob)
+        return torch.sparse.FloatTensor(rc, val, x.shape).to(x.device)
+
+    # 该版本解决了eval下dropout 问题，主要思路为将输入部分以概率p置零使得对应部分
+    # 权重无效，再将val值缩放，使得剩余部分总和与Dropout前一样
+    # 但是对于x为 require_grad情况下， grad变为False
+    """
+    def sparse_dropout(x, rate, noise_shape):
+        """
+
+    :param x:
+    :param rate:
+    :param noise_shape: int scalar
+    :return:
+    """
+    random_tensor = 1 - rate
+    random_tensor += torch.rand(noise_shape).to(x.device)
+    dropout_mask = torch.floor(random_tensor).type(torch.bool)
+
+    # 这样改能保留梯度，但是计算速度稍慢
+    x = x.to_dense()
+    i = x._indices() # [2, 49216]
+    v = x[i[0], i[1]]
+
+    # [2, 4926] => [49216, 2] => [remained node, 2] => [2, remained node]
+    i = i[:, dropout_mask]
+    v = v[dropout_mask]
+
+    out = torch.sparse.FloatTensor(i, v, x.shape).to(x.device)
+
+    out = out * (1./ (1-rate))
+
+    return out

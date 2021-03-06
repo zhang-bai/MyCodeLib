@@ -16,10 +16,17 @@
 
 
 
+[Graph Generation](#Graph-Generation)
+
+- [Identifying critical edges in complex networks     Scientific Rrports 2018](#Identifying-critical-edges-in-complex-networks)
+
+
+
 [Graph Equivariant](#Graph-Equivariant)
 
 - [Natural Graph Networks    NIPS 2020](#Natural-Graph-Networks)
 - [Invariant and Equivariant Graph Networks    ICLR 2019](#Invariant-and-Equivariant-Graph-Networks)
+- [E(n) Equivariant Graph Neural Networks   arXive 2021](#E(n)-Equivariant-Graph-Neural-Networks)
 
 
 
@@ -38,7 +45,7 @@
 
 
 
-## Graph Augmentation
+# Graph Augmentation
 
 
 
@@ -187,7 +194,7 @@ $$
 
 ##### adding edges
 
-在中心节点与2级和3级的某些节点之间添加边，例如，在引文网络中，论文 A 引用 B，因为它使用 B 中引入的方法 M。然而，M不是B的主要贡献，B引用的论文C提出了M。 然后，在 A 和 C 之间添加边，在不更改其标签的情况下增强 A 的输入要素。
+在**中心节点**与**2级和3级的某些节点**之间添加边，例如，在引文网络中，论文 A 引用 B，因为它使用 B 中引入的方法 M。然而，M不是B的主要贡献，B引用的论文C提出了M。 然后，在 A 和 C 之间添加边，在不更改其标签的情况下增强 A 的输入要素。
 $$
 𝑝_{𝑒−add} = min \left(
  
@@ -201,6 +208,10 @@ $$
 
 \qquad (8)
 $$
+
+
+
+
 与图像中增广方法对比：
 
 removing —— cutting
@@ -237,11 +248,39 @@ adding —— shearing and resizing, 改变卷积顺序
 
 
 
+# Graph Generation
+
+
+
+### 补充知识
+
+- Graph center / Jordan Center
 
 
 
 
-## Graph Equivariant
+
+- Eigenvector centrality
+
+In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector centrality** (also called **eigencentrality** or **prestige score[[1\]](https://en.wikipedia.org/wiki/Eigenvector_centrality#cite_note-:0-1)**) is a measure of the influence of a [node](https://en.wikipedia.org/wiki/Node_(networking)) in a [network](https://en.wikipedia.org/wiki/Network_(mathematics)). Relative scores are assigned to all nodes in the network based on the concept that connections to high-scoring nodes contribute more to the score of the node in question than equal connections to low-scoring nodes. A high eigenvector score means that a node is connected to many nodes who themselves have high scores.[[2\]](https://en.wikipedia.org/wiki/Eigenvector_centrality#cite_note-2) [[3\]](https://en.wikipedia.org/wiki/Eigenvector_centrality#cite_note-3)
+
+
+
+
+
+### **Identifying critical edges in complex networks**
+
+[原文](papers/Identifying-critical-edges-in-complex-networks.pdf)
+
+#### 摘要
+
+![image-20210304104902929](img/image-20210304104902929.png)
+
+
+
+
+
+# Graph Equivariant
 
 
 
@@ -261,9 +300,23 @@ adding —— shearing and resizing, 改变卷积顺序
 
 
 
+### **E(n) Equivariant Graph Neural Networks**
+
+[原文](papers/E(n)-Equivariant-Graph-Neural-Networks.pdf)
 
 
-## Graph Attack
+
+#### 摘要
+
+![image-20210304104501862](img/image-20210304104501862.png)
+
+
+
+
+
+
+
+# Graph Attack
 
 
 
@@ -372,7 +425,7 @@ $$
 
 
 
-## Recommender Systems
+# Recommender Systems
 
 
 
