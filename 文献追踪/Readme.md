@@ -4,6 +4,10 @@
 
 
 
+# 目录
+
+
+
 [Graph Augmentation](#Graph-Augmentation)
 
 + [Data Augmentation for Graph Neural Networks   AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
@@ -50,6 +54,24 @@
 [原文](papers/Data-Augmentation-for-Graph-Neural-Networks.pdf)
 
 [代码链接](https://github.com/zhao-tong/GAug)
+
+
+
+
+
+#### 摘要
+
+![image-20210226183847516](img/image-20210226183847516.png)
+
+
+
+#### 网络结构
+
+
+
+
+
+
 
 图增强，主要研究增减边对图数据的影响
 
