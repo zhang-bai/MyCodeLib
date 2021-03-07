@@ -242,6 +242,68 @@ adding —— shearing and resizing, 改变卷积顺序
 
 In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector centrality** (also called **eigencentrality** or **prestige score[[1\]](https://en.wikipedia.org/wiki/Eigenvector_centrality#cite_note-:0-1)**) is a measure of the influence of a [node](https://en.wikipedia.org/wiki/Node_(networking)) in a [network](https://en.wikipedia.org/wiki/Network_(mathematics)). Relative scores are assigned to all nodes in the network based on the concept that connections to high-scoring nodes contribute more to the score of the node in question than equal connections to low-scoring nodes. A high eigenvector score means that a node is connected to many nodes who themselves have high scores.[[2\]](https://en.wikipedia.org/wiki/Eigenvector_centrality#cite_note-2) [[3\]](https://en.wikipedia.org/wiki/Eigenvector_centrality#cite_note-3)
 
+ The eigenvector centrality thesis reads:
+
+> A node is important if it is linked to by other important nodes.
+
+- **Math**
+
+  Let $A = (a_{i,j})$ be the adjacency matrix of a graph. The eigenvector centrality $x_{i}$ of node $i$ is given by: $$x_i = \frac{1}{\lambda} \sum_k a_{k,i} \, x_k$$ where $\lambda \neq 0$ is a constant. In matrix form we have: $$\lambda x = x A$$
+
+  
+
+  Hence the centrality vector $x$ is the **left-hand eigenvector** of the adjacency matrix $A$ associated with the eigenvalue $\lambda$. It is wise to **choose $\lambda$ as the largest eigenvalue in absolute value of matrix $A$.** By virtue of Perron-Frobenius theorem, this choice guarantees the following desirable property: if matrix $A$ is irreducible, or equivalently if the graph is (strongly) connected, then the eigenvector solution $x$ is both unique and positive.
+
+  
+
+  The **power method** can be used to solve the eigenvector centrality problem. Let $m(v)$ denote the signed component of maximal magnitude of vector $v$. If there is more than one maximal component, let $m(v)$ be the first one. For instance, $m(-3,3,2) = -3$. Let $x^{(0)}$ be an arbitrary vector. For $k \geq 1$:
+
+  1. repeatedly compute $x^{(k)} = x^{(k-1)} A$;
+  2. normalize $x^{(k)} = x^{(k)} / m(x^{(k)})$;
+
+  until the desired precision is achieved. It follows that $x^{(k)}$ converges to the dominant eigenvector of $A$ and $m(x^{(k)})$ converges to the dominant eigenvalue of $A$. If matrix $A$ is sparse, each vector-matrix product can be performed in linear time in the size of the graph.
+
+  The method converges when the dominant (largest) and the sub-dominant (second largest) eigenvalues of $A$, respectively denoted by $\lambda_1$ and $\lambda_2$, are separated, that is they are different in absolute value, hence when $|\lambda_1| > |\lambda_2|$. The rate of convergence is the rate at which $(\lambda_2 / \lambda_1)^k$ goes to $0$. Hence, if the sub-dominant eigenvalue is small compared to the dominant one, then the method quickly converges.
+
+  **x向量即所有Node的大小，该向量值代表个node的得分，并根据最大的得分归一化**
+
+- **Code**
+
+  The built-in function evcent ([R](http://igraph.org/r/doc/evcent.html), [C](http://igraph.org/c/doc/igraph-Structural.html#igraph_eigenvector_centrality)) computes eigenvector centrality.
+
+  A user-defined function eigenvector.centrality follows:
+
+  ```
+  # Eigenvector centrality (direct method)
+  #INPUT
+  # g = graph
+  # t = precision
+  # OUTPUT
+  # A list with:
+  # vector = centrality vector
+  # value = eigenvalue
+  # iter = number of iterations
+  
+  eigenvector.centrality = function(g, t) {
+    A = get.adjacency(g);
+    n = vcount(g);
+    x0 = rep(0, n);
+    x1 = rep(1/n, n);
+    eps = 1/10^t;
+    iter = 0;
+    while (sum(abs(x0 - x1)) > eps) {
+      x0 = x1;
+      x1 = as.vector(x1 %*% A);
+      m = x1[which.max(abs(x1))];
+      x1 = x1 / m;
+      iter = iter + 1;
+    } 
+    return(list(vector = x1, value = m, iter = iter))
+  }  
+  ```
+
+
+
 
 
 
