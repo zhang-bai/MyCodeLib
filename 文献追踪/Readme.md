@@ -1,10 +1,20 @@
 
 
-记录一些前沿文献
+记录一些前沿文献,
+
+***表示还未看
 
 
 
 # 目录
+
+
+
+[Graph Survey  ***](#Graph-Survey)
+
+- [Artificial Intelligence Index Report 2021       Stanford University HAI](#Artificial-Intelligence-Index-Report-2021)
+
+- 
 
 
 
@@ -16,17 +26,24 @@
 
 
 
-[Graph Generation](#Graph-Generation)
+[Graph Structures / Generation***](#Graph-Generation)
 
-- [Identifying critical edges in complex networks     Scientific Rrports 2018](#Identifying-critical-edges-in-complex-networks)
+- [Identifying critical edges in complex networks            Scientific Rrports 2018](#Identifying-critical-edges-in-complex-networks)
+- [Struc2vec: Learning Node Representations from Structural Identity     KDD 2017](#Struc2vec:-Learning-Node-Representations-from-Structural-Identity)
+
+- [Representation Learning on Graphs: Methods and Applications        IEEE TCDE 2017](#Representation-Learning-on-Graphs:-Methods-and-Applications)
+
+- [Link Prediction Based on Graph Neural Networks     NIPS 2018](#Link-Prediction-Based-on-Graph-Neural-Networks)
+
+- [Graph similarity scoring and matching      Applied Mathematics Letters 2007](#Graph similarity scoring and matching)
 
 
 
-[Graph Equivariant](#Graph-Equivariant)
+[Graph Equivariant ***](#Graph-Equivariant)
 
 - [Natural Graph Networks    NIPS 2020](#Natural-Graph-Networks)
 - [Invariant and Equivariant Graph Networks    ICLR 2019](#Invariant-and-Equivariant-Graph-Networks)
-- [E(n) Equivariant Graph Neural Networks   arXive 2021](#E(n)-Equivariant-Graph-Neural-Networks)
+- [E(n) Equivariant Graph Neural Networks   arXive 2021 ***](#E(n)-Equivariant-Graph-Neural-Networks)
 
 
 
@@ -38,8 +55,18 @@
 
 [Recommender Systems](#Recommender-Systems)
 
-- [Factorization Machines    2010 IEEE ICDM](#Factorization-Machines)
-- [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction    IJCAI2017](#DeepFM)
+- [Factorization Machines      IEEE ICDM 2010](#Factorization-Machines)
+- [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction    IJCAI 2017](#DeepFM)
+
+
+
+
+
+# Graph Survey
+
+
+
+### Artificial Intelligence Index Report 2021
 
 
 
@@ -337,6 +364,38 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 #### 摘要
 
 ![image-20210304104902929](img/image-20210304104902929.png)
+
+
+
+
+
+### Struc2vec: Learning Node Representations from Structural Identity
+
+
+
+
+
+
+
+### Representation Learning on Graphs: Methods and Applications
+
+
+
+
+
+### Link Prediction Based on Graph Neural Networks
+
+
+
+### Graph similarity scoring and matching
+
+
+
+
+
+
+
+
 
 
 
