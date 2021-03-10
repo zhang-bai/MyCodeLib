@@ -1,3 +1,8 @@
+---
+title: 导引
+mathjax: True
+---
+
 
 
 记录一些前沿文献,
@@ -283,6 +288,16 @@ adding —— shearing and resizing, 改变卷积顺序
 
 ##### 1.Graph center / Jordan Center
 
+The **center** (or [Jordan](https://en.wikipedia.org/wiki/Camille_Jordan) center[[1\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-WF-1)) of a [graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) is the set of all vertices of minimum [eccentricity](https://en.wikipedia.org/wiki/Eccentricity_(graph_theory)),[[2\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-2) that is, the set of all vertices *u* where the greatest distance *d*(*u*,*v*) to other vertices *v* is minimal. Equivalently, it is the set of vertices with eccentricity equal to the graph's [radius](https://en.wikipedia.org/wiki/Radius_(graph_theory)).[[3\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-3) Thus vertices in the center (**central points**) minimize the maximal distance from other points in the graph.
+
+This is also known as the **vertex 1-center problem** and can be extended to the [vertex k-center problem](https://en.wikipedia.org/wiki/Vertex_k-center_problem).
+
+Finding the center of a graph is useful in [facility location problems](https://en.wikipedia.org/wiki/Facility_location_problem) where the goal is to minimize the worst-case distance to the facility. For example, placing a hospital at a central point reduces the longest distance the ambulance has to travel.
+
+The center can be found using the [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm).[[4\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-4)[[5\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-5) Another algorithm has been proposed based on matrix calculus.[[6\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-P-6)
+
+The concept of the center of a graph is related to the [closeness centrality](https://en.wikipedia.org/wiki/Closeness_centrality) measure in [social network analysis](https://en.wikipedia.org/wiki/Social_network_analysis), which is the reciprocal of the mean of the distances *d*(*A*,*B*).[[1\]](https://en.wikipedia.org/wiki/Graph_center#cite_note-WF-1)
+
 
 
 
@@ -353,11 +368,21 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 
 
 
+##### 3. Clique
+
+In the [mathematical](https://en.wikipedia.org/wiki/Mathematics) area of [graph theory](https://en.wikipedia.org/wiki/Graph_theory), a **clique** ([/ˈkliːk/](https://en.wikipedia.org/wiki/Help:IPA/English) or [/ˈklɪk/](https://en.wikipedia.org/wiki/Help:IPA/English)) is a subset of vertices of an [undirected graph](https://en.wikipedia.org/wiki/Undirected_graph) such that every two distinct vertices in the clique are adjacent. That is, a clique of a graph *G* is an [induced subgraph](https://en.wikipedia.org/wiki/Induced_subgraph) of *G* that is [complete](https://en.wikipedia.org/wiki/Complete_graph). Cliques are one of the basic concepts of graph theory and are used in many other mathematical problems and constructions on graphs. Cliques have also been studied in [computer science](https://en.wikipedia.org/wiki/Computer_science): the task of finding whether there is a clique of a given size in a [graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) (the [clique problem](https://en.wikipedia.org/wiki/Clique_problem)) is [NP-complete](https://en.wikipedia.org/wiki/NP-complete), but despite this hardness result, many algorithms for finding cliques have been studied.
+
+Although the study of [complete subgraphs](https://en.wikipedia.org/wiki/Complete_graph) goes back at least to the graph-theoretic reformulation of [Ramsey theory](https://en.wikipedia.org/wiki/Ramsey_theory) by [Erdős & Szekeres (1935)](https://en.wikipedia.org/wiki/Clique_(graph_theory)#CITEREFErdősSzekeres1935),[[1\]](https://en.wikipedia.org/wiki/Clique_(graph_theory)#cite_note-1) the term *clique* comes from [Luce & Perry (1949)](https://en.wikipedia.org/wiki/Clique_(graph_theory)#CITEREFLucePerry1949), who used complete subgraphs in [social networks](https://en.wikipedia.org/wiki/Social_network) to model [cliques](https://en.wikipedia.org/wiki/Clique) of people; that is, groups of people all of whom know each other. Cliques have many other applications in the sciences and particularly in [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics).
 
 
 
 
-### **Identifying critical edges in complex networks**
+
+
+
+
+
+## **Identifying critical edges in complex networks**
 
 [原文](papers/Identifying-critical-edges-in-complex-networks.pdf)
 
@@ -365,11 +390,175 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 
 ![image-20210304104902929](img/image-20210304104902929.png)
 
+提出了一种基于团簇和网络路径的边缘排序算法$BCC_{MOD} (Betweenness Centrality and Clique Model)$。
+
+performs good in identifying critical edges both in network connectivity and spreading dynamic
+
+
+
+#### 整体结构
+
+- 目的
+
+  找出网络连接和传播过程中的关键边
+
+- 方法
+
+  基于网络中的团和路径提出BCC方法，
+  $$
+  BCC_{MOD}(u,v) = \frac{k_u k_v \cdot BC(u,v)}{\sum_{i=3}^n C(u,v)_i}
+  $$
+  将节点的度、Betweenness centrality、团的概念结合起来，核心思想即：
+
+  - 连接两个度高的节点的边很重要
+  - 通过该边的最短路径越多，该边越重要
+  - 团(完全子图)的节点数多的子图中，删除边还有很多其他方式到达两个节点，影响较小
+
+
+
+#### Related Work
+
+**衡量 Node 的重要性：**
+
+- Node's degree
+
+  Degree centrality, semi-local centrality, k-shell and H-index
+
+- Paths in networks
+
+  Closeness centrality, betweenness centrality and eccentricity centrality
+
+- Eigenvector
+
+  PageRank, LeaderRank and HITs
+
+
+
+**衡量 Edge 的重要性：**
+
+- **Degree product** 
+
+  supposes that edges connecting two nodes with high degrees are critical.
+
+- **Betweenness centrality** of edges and betweenness centrality of a group of edges
+
+  suppose that edges linking two connected components are important.
+
+- **Jaccard coefficient**, if node i and node j have a lot of common neighbors, even if they have no direct connection, information also can spread from node i to node j easily,
+  so edges are more important if there are less common neighbors.
+
+  Jaccard index  , 又称为Jaccard相似系数（Jaccard similarity coefficient）用于比较有限样本集之间的相似性与差异性。Jaccard系数值越大，样本相似度越高。
+
+- **Edges in the clique** 
+
+  if an edge is removed, information can spread through other edges in clique  which contains the removed edge 
+
+  so, intuitively, edges in smaller cliques are more important.
+
+- The ability to disseminate information
+
+  An edge is important if most of the information is spreading through this edge
+
+
+
+**本文：**
+
+​	In this report, we only use the topology of networks to rank the importance of edges, considering not only
+the local characteristics (degrees of nodes, cliques) but also the global characteristics (betweenness centrality).
 
 
 
 
-### Struc2vec: Learning Node Representations from Structural Identity
+
+#### 主要机制
+
+##### 1. Betweenness centrality
+
+The more the shortest paths between node pairs pass through the edge e(u, v), the more important the edge e(u, v) is. The betweenness centrality of an edge e(u, v)15 is defined as:
+$$
+BC(u,v) = \sum_{s \ne t \in V} \frac{\delta_{st}(u,v)}{\delta_{st}}
+$$
+
+
+where $\delta_{st}$ is the number of all the shortest paths between node s and node t, $\delta_{st}(u, v)$  is the number of all the
+shortest paths between node s and node t which pass through the edge e(u, v), the larger the score BC is, the more
+important the edge is.
+
+
+
+##### 2. Edges in the clique
+
+The more important the two related nodes are, the more important the edge is. **On the other hand**, if there are many different cliques containing e(u, v), even e(u, v) is removed, the information also can spread from u to v (or v to u) easily through other edges in these cliques.
+
+
+
+##### 3. $BCC_{MOD}$ (Betweenness Centrality and Clique Model)
+
+
+$$
+BCC_{MOD}(u,v) = \frac{k_u k_v \cdot BC(u,v)}{\sum_{i=3}^n C(u,v)_i}
+$$
+Where BC(u, v) is the betweenness centrality of edge e(u, v), $k_u$ and $k_v$  are the degrees of node u and node v respectively, $C(u, v)_i$ is the number of cliques containing edge e(u, v) (in this report, clique means full connected subgraph, not the maximum full connected subgraph) **whose size being i**. For example $C(u, v)_4 = 3$ means there are three cliques containing edge e(u, v) whose size being 4.**(i 即完全子图中的节点数)**
+
+In this method, the larger the score is, the more important the edge is.
+
+![image-20210309204332132](img/image-20210309204332132.png) 
+
+For example, as shown in Fig. 5(a,c), the degrees of nodes 1 and 2 are 7 and 8 respectively. In Fig. 5(a) (max size of cliques is 4), $C(1, 2)_3$ is 5 and $C(1, 2)_4$ is 2.(根据每个节点连出来多少个边确定)
+
+When we remove edge e(1, 2), there are also many paths from node 1 to node 2, the effect of spreading is little.
+However, in Fig. 5(c) (max size of cliques is 3) with C(1, 2)3 being 1, when we remove edge e(1, 2), the effect of
+spreading is large since there is only one path (1, 3, 2) from node 1 to node 2. Table 4 shows the effect probability
+$p_e$ of nodes 2, 3, and 9 with the original infected source being node 1 on SIR spreading model with full contact
+process. Taking node 2 as an example, in Fig. 5(a,b), its effect probability is 0.3733 and 0.2240 respectively under
+μ = 0.2. However, in Fig. 5(c,d), the effect probability of node 2 is 0.2392 and 0.0380 respectively under μ = 0.2.
+
+![image-20210310084814775](img/image-20210310084814775.png)
+
+
+
+The Jaccard coefficient of an edge e(u, v) is defined as：
+$$
+J_{e(u,v)} = \frac{|\Gamma _ u \cap \Gamma_v |}{|\Gamma _ u \cup \Gamma_v |}
+$$
+where u and v are two related nodes of the edge e(u, v) and $\Gamma _ u$ is the set of $u’s$  neighbors. 
+
+Jaccard相似系数（Jaccard similarity coefficient）用于比较有限样本集之间的相似性与差异性。Jaccard系数值越大，样本相似度越高。
+
+The Bridgeness index of an edge e(u, v) is defined as
+
+![image-20210310090804969](img/image-20210310090804969.png)
+
+
+
+#### 实验结果
+
+
+
+- 数据集
+
+![image-20210309163212661](img/image-20210309163212661-1615278754326.png)
+
+- 评价指标
+
+  - Susceptibility index S
+    $$
+    S = \sum _{s<s_{max}} \frac{n_s s^2}{n}
+    $$
+
+  ![image-20210309164044789](img/image-20210309164044789.png)
+
+  - The size of giant component σ
+
+  
+
+  
+
+  - SIR spreading model
+
+
+
+## Struc2vec: Learning Node Representations from Structural Identity
 
 
 
@@ -377,17 +566,17 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 
 
 
-### Representation Learning on Graphs: Methods and Applications
+## Representation Learning on Graphs: Methods and Applications
 
 
 
 
 
-### Link Prediction Based on Graph Neural Networks
+## Link Prediction Based on Graph Neural Networks
 
 
 
-### Graph similarity scoring and matching
+## Graph similarity scoring and matching
 
 
 
@@ -405,7 +594,7 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 
 
 
-### Natural Graph Networks
+## Natural Graph Networks
 
 [原文](papers/Natural-Graph-Networks.pdf)
 
@@ -415,13 +604,13 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 
 
 
-### Invariant and Equivariant Graph Networks
+## Invariant and Equivariant Graph Networks
 
 [原文](papers/Invariant-and-equivariant-graph.pdf)
 
 
 
-### **E(n) Equivariant Graph Neural Networks**
+## **E(n) Equivariant Graph Neural Networks**
 
 [原文](papers/E(n)-Equivariant-Graph-Neural-Networks.pdf)
 
@@ -483,7 +672,7 @@ In [graph theory](https://en.wikipedia.org/wiki/Graph_theory), **eigenvector cen
 
 
 
-### Towards More Practical Adversarial Attacks on Graph Neural Networks
+## Towards More Practical Adversarial Attacks on Graph Neural Networks
 
 [原文](papers/Towards-More-Practical-Adversarial-Attacks-on-Graph-Neural-Networks.pdf)
 
@@ -550,7 +739,7 @@ $$
 
 
 
-### Factorization Machines
+## Factorization Machines
 
 
 
@@ -558,4 +747,4 @@ $$
 
 
 
-### DeepFM
+## DeepFM
