@@ -35,12 +35,10 @@ mathjax: True
 
 - [Identifying critical edges in complex networks            Scientific Rrports 2018](#Identifying-critical-edges-in-complex-networks)
 - [Struc2vec: Learning Node Representations from Structural Identity     KDD 2017](#Struc2vec:-Learning-Node-Representations-from-Structural-Identity)
-
 - [Representation Learning on Graphs: Methods and Applications        IEEE TCDE 2017](#Representation-Learning-on-Graphs:-Methods-and-Applications)
-
 - [Link Prediction Based on Graph Neural Networks     NIPS 2018](#Link-Prediction-Based-on-Graph-Neural-Networks)
-
 - [Graph similarity scoring and matching      Applied Mathematics Letters 2007](#Graph similarity scoring and matching)
+- [Whose Opinion to Follow in Multihypothesis Social Learning? A Large Deviations Perspective     IEEE JSTSP 2015](#Whose-Opinion-to-Follow-in-Multihypothesis-Social-Learning?-A-Large-Deviations-Perspective)
 
 
 
@@ -580,13 +578,15 @@ The Bridgeness index of an edge e(u, v) is defined as
 
 
 
+#### 摘要
+
+![image-20210310092923360](img/image-20210310092923360.png)
 
 
 
 
 
-
-
+## Whose Opinion to Follow in Multihypothesis Social Learning? A Large Deviations Perspective
 
 
 
