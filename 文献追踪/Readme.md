@@ -19,7 +19,7 @@ mathjax: True
 
 - [Artificial Intelligence Index Report 2021       Stanford University HAI](#Artificial-Intelligence-Index-Report-2021)
 
-- 
+- [Graph Self-Supervised Learning: A Survey   arXive 2021  ](#Graph-Self-Supervised-Learning:-A-Survey)
 
 
 
@@ -70,6 +70,24 @@ mathjax: True
 
 
 ### Artificial Intelligence Index Report 2021
+
+
+
+### Graph Self-Supervised Learning: A Survey
+
+#### 摘要
+
+![image-20210316115421041](img/image-20210316115421041.png)
+
+
+
+
+
+
+
+
+
+
 
 
 

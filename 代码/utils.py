@@ -20,6 +20,10 @@
         求余弦相似度
     10.Sparse_dropout_pytorch
         解决grad 变为Fasle问题
+    11.save_txt
+
+    12.gen_log
+        生成log日志文件
 """
 
 
@@ -306,3 +310,22 @@ def Sparse_dropout_pytorch():
     out = out * (1./ (1-rate))
 
     return out
+
+
+def save_txt():
+    f = open("data/model_Weight.txt",'a')  #若文件不存在，系统自动创建。'a'表示可连续写入到文件，保留原内容，在原
+    #内容之后写入。可修改该模式（'w+','w','wb'等）
+    f.write("hello,sha")  #将字符串写入文件中
+    f.write("\n")         #换行  
+    # 下图很好的总结了这几种模式：
+    # https://www.runoob.com/wp-content/uploads/2013/11/2112205-861c05b2bdbc9c28.png
+
+
+def gen_log():
+import logging  
+    logging.debug('this is debug message')  
+    logging.info('this is info message')  
+    logging.warning('this is warning message')  
+
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(message)s') 
+    #打印结果：WARNING:root:this is warning message 
