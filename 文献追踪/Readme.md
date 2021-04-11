@@ -28,6 +28,13 @@ mathjax: True
 + [Data Augmentation for Graph Neural Networks   AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
 + [Graph-Revised Convolutional Network   arXive 2020](#Graph-Revised-Convolutional-Network)
 + [NodeAug: Semi-Supervised Node Classification with Data Augmentation   KDD2020](#NodeAug-Semi-Supervised-Node-Classification-with-Data-Augmentation)
++ [GraphMix](GraphMix:-Improved-Training-of-Graph-Neural-Networks-for-Semi-Supervised-Learning[)
+
+
+
+[Graph Network](#Graph-Network)
+
+- [Graph U-Nets    ICML 2019](#Graph-U-Nets)
 
 
 
@@ -287,6 +294,58 @@ adding —— shearing and resizing, 改变卷积顺序
 
 
 ![image-20210206135412484](img/image-20210206135412484.png)
+
+
+
+
+
+
+
+
+
+### GraphMix: Improved Training of Graph Neural Networks for Semi-Supervised Learning
+
+
+
+
+
+
+
+#### 流程：
+
+![image-20210326174131806](img/image-20210326174131806.png)
+
+
+
+#### 实验结果：
+
+![image-20210326173753099](img/image-20210326173753099.png)
+
+
+
+![image-20210326174244930](img/image-20210326174244930.png)
+
+
+
+![image-20210326174021216](img/image-20210326174021216.png)
+
+
+
+
+
+# Graph Network
+
+
+
+
+
+## Graph U-Nets
+
+#### 摘要
+
+![image-20210330092529868](img/image-20210330092529868.png)
+
+网络结构：
 
 
 

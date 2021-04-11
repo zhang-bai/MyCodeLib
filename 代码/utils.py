@@ -24,6 +24,8 @@
 
     12.gen_log
         生成log日志文件
+    13.tensorboard
+        绘制loss, acc曲线
 """
 
 
@@ -212,7 +214,23 @@ def evaluate_Pytorch():
 
 
 def save_csv():
+    # 1.numpy
     import numpy as np
+    np.savetxt('frame',array,fmt='%d',delimiter=None) #frame: 文件 array:存入文件的数组
+    # #load csv
+    # np.loadtxt('frame',dtype=np.int,delimiter=None,unpack=False) # frame:文件 unpack:若为True，则读入属性奖分别写入不同变量
+
+    # 2.pandas
+    import pandas as pd
+    # 任意的多组列表
+    a = [1, 2, 3]
+    b = [4, 5, 6]
+    # 字典中的key值即为csv中列名
+    dataframe = pd.DataFrame({'a_name': a, 'b_name': b})
+    # 将DataFrame存储为csv,index表示是否显示行名，default=True
+    dataframe.to_csv("test.csv", index=False, sep=',', mode='a', header=None)
+    # load csv
+    # data = pd.read_csv('test.csv', sep=',')
 
 
 def save_pickle(data,file_name):
@@ -327,5 +345,18 @@ import logging
     logging.info('this is info message')  
     logging.warning('this is warning message')  
 
-    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(message)s') 
+    import logging  # 引入logging模块
+    # 默认输出级别为 warning
+    log_fmt = "%(asctime)s|%(levelname)s|%(filename)s:%(lineno)s|%(message)s"
+    logging.basicConfig(filename='debug.log', filemode='w', format=log_fmt, level=logging.DEBUG)
+    # 将信息打印到控制台上
+    logging.debug(u"aaa")
+    logging.info(u"bbb")
+    logging.warning(u"ccc")
+    logging.error(u"ddd")
+    logging.critical(u"fff")
     #打印结果：WARNING:root:this is warning message 
+
+
+    def tensorboard():
+        from tensorboardX import SummaryWriter  

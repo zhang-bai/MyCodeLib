@@ -70,9 +70,44 @@ $ jupyter notebook --allow-root
 
 
 
+# jupyter 快捷方式
 
+依次点击开始-Anaconda3(64-bit)，在Jupyter Notebook (Anaconda3)上右击，选择更多-打开文件位置。
 
+选中Jupyter Notebook (Anaconda3)这个快捷方式，Ctrl+C，Ctrl+V，也就是把这个快捷方式复制一份，右击生成Jupyter Notebook (Anaconda3) - 副本，选择属性
 
+在快捷方式-目标中：
+
+将[jupyter-notebook-script.py](https://link.zhihu.com/?target=http%3A//jupyter-notebook-script.py/) 替换为[jupyter-lab-script.py](https://link.zhihu.com/?target=http%3A//jupyter-lab-script.py/)
+
+形成如：
+
+D:\Anaconda3\python.exe d:\Anaconda3\[cwp.py](https://link.zhihu.com/?target=http%3A//cwp.py/) d:\Anaconda3 d:\Anaconda3\python.exe d:\Anaconda3\Scripts\[jupyter-lab-script.py](https://link.zhihu.com/?target=http%3A//jupyter-lab-script.py/) "D:\data"
+
+的形式，D:\data为Jupyter lab启动后的工作目录，起始位置和此保持一致。或是将"D:\data"删除，只在起始位置设置。如果启动目录还是无法修改可以尝试找到jupyter_notebook_config.json文件，将里面的
+{}
+
+修改其内容为：
+
+{
+
+  "NotebookApp": {
+
+​    "notebook_dir": "D:/data"
+
+  }
+
+}
+
+在备注中也可以修改自己喜欢的名字。也可以更换为自己喜欢的图标。
+
+![img](https://pic2.zhimg.com/80/v2-2f05cf1b650fd76f4d334c891f6c2795_720w.jpg)
+
+在常规中将名字改为自己喜欢的名字
+
+![img](https://pic1.zhimg.com/80/v2-bbf99d43f2c29f25139d926f5c5efda4_720w.jpg)
+
+然后在开始菜单下Anaconda3(64-bit)中就会形成刚才的快捷方式。
 
 
 
@@ -109,6 +144,23 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0MYaQw2qgWiK8yePvg86sp0A0ig6tBlkeqPOLN8zI
 
 
 
+# 测试端口 tcping
+
+在windows下，我们可以下载tcping这个小工具来帮助我们查看指定的端口是否是通的。
+
+https://elifulkerson.com/projects/tcping.php  （下载地址）
+
+进去后，直接下载tcping.exe 那个文件就行。然后把下载好的工具放到电脑的C盘>Windows>System32 下面就行。
+
+然后我们直接重新打开CMD窗口，输入命令：tcping 指定的IP或者域名 端口号 。输入完回车就可以查看这个IP的端口是否是通着的。
+
+比如：tcping 10.20.66.37 8090
+
+
+
+# BAT CMD脚本
+
+cmd /k "cd /d d:\Files&&jupyter lab"
 
 
 # Logging
@@ -152,4 +204,63 @@ logging.basicConfig函数各参数:
  datefmt: 指定时间格式，同time.strftime()
  level: 设置日志级别，默认为logging.WARNING
  stream: 指定将日志的输出流，可以指定输出到sys.stderr,sys.stdout或者文件，默认输出到sys.stderr，当stream和filename同时指定时，stream被忽略
+
+
+
+# R
+
+**安装R内核**
+
+```
+conda install -c r r-essentials
+```
+
+**安装rpy2----可同时运行Python、R**
+
+ `pip install rpy2`或者`conda install rpy2`
+
+#### python 调用R
+
+python对象转换成R对象
+
+      通常，可以将python的list对象，转换成为R的vector对象【robjects.ListVector()将python的字典（或list）转换成R的列表】，之后直接使用R函数调用。rpy2提供了几个函数，供我们把将python的list转化成R的不同数据类型的vector，对应的函数有 robjects.IntVector(),robjects.FloatVector()等，具体如下：详见：rpy2的vector相关的官方文档
+    
+    robjects.StrVector()#字符
+    robjects.IntVector()#整数
+    robjects.FloatVector()#浮点
+    robjects.complexVector()#复数
+    robjects.FactorVector()#因子
+    robjects.BoolVector()#布尔向量
+    robjects.ListVector()#列表
+
+需注意：使用vector系列函数时，输入的只能是python的列表，而不能是数字或者字符串。
+
+
+
+# Tensorboard
+
+
+
+tensorboard --logdir=<your_log_dir>
+
+其中的 <your_log_dir> 既可以是单个 run 的路径，如上面 writer1 生成的 runs/exp；也可以是多个 run 的父目录，如 runs/ 下面可能会有很多的子文件夹，每个文件夹都代表了一次实验，我们令 --logdir=runs/ 就可以在 tensorboard 可视化界面中方便地横向比较 runs/ 下不同次实验所得数据的差异。
+
+
+#### SummaryWriter()
+
+参数为：def __init__(self, log_dir=None, comment='', **kwargs): 其中log_dir为生成的文件所放的目录，comment为文件名称。默认目录为生成runs文件夹目录
+
+#### writer.add_scalar()
+
+第一个参数可以简单理解为保存图的名称，第二个参数是可以理解为Y轴数据，第三个参数可以理解为X轴数据。当Y轴数据不止一个时，可以使用writer.add_scalars()
+
+最后调用writer.close()
+
+
+
+
+
+
+
+
 
