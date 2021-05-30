@@ -184,10 +184,29 @@ logging.warning('this is warning message')
 默认情况下，logging将日志打印到屏幕，日志级别为WARNING；
  日志级别大小关系为：`CRITICAL > ERROR > WARNING > INFO > DEBUG > NOTSET` ，当然也可以自己定义日志级别。
 
+```python
+import logging
+find_seed = './seed_acc.csv'
+message = 'Seed' + ' Acc' + ' Best_acc' + '\n'
+with open(find_seed, 'w') as f:
+	f.write(message)
+logging.basicConfig(filename=find_seed, filemode='a', level=logging.INFO, format='%(message)s')
+for seeds in seed_list:
+    acc, best_acc = train_main(args, seeds)
+    acc = round(acc, 4)
+    best_acc = round(best_acc, 4)
+
+    mess = str(seeds) + ' ' + str(acc) + ' ' + str(best_acc)
+    print(mess)
+    logging.info(mess)
+```
+
+
+
 **通过logging.basicConfig函数对日志的输出格式及方式做相关配置**
 
 logging.basicConfig函数各参数:
- filename: 指定日志文件名
+ **filename: 指定日志文件名**
  filemode: 和file函数意义相同，指定日志文件的打开模式，'w'或'a'
  format: 指定输出的格式和内容，format可以输出很多有用信息，如上例所示:
   %(levelno)s: 打印日志级别的数值

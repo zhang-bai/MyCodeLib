@@ -28,13 +28,15 @@ mathjax: True
 + [Data Augmentation for Graph Neural Networks   AAAI 2021](#Data-Augmentation-for-Graph-Neural-Networks---AAAI-2021)
 + [Graph-Revised Convolutional Network   arXive 2020](#Graph-Revised-Convolutional-Network)
 + [NodeAug: Semi-Supervised Node Classification with Data Augmentation   KDD2020](#NodeAug-Semi-Supervised-Node-Classification-with-Data-Augmentation)
-+ [GraphMix](GraphMix:-Improved-Training-of-Graph-Neural-Networks-for-Semi-Supervised-Learning[)
++ [GraphMix](#GraphMix:-Improved-Training-of-Graph-Neural-Networks-for-Semi-Supervised-Learning[)
++ [A Kernel Theory of Modern Data Augmentation    arXive 2019](#A-Kernel-Theory-of-Modern-Data-Augmentation)
 
 
 
 [Graph Network](#Graph-Network)
 
 - [Graph U-Nets    ICML 2019](#Graph-U-Nets)
+- [Adaptive Graph Encoder for Attributed Graph Embedding](#Adaptive-Graph-Encoder-for-Attributed-Graph-Embedding)
 
 
 
@@ -54,6 +56,7 @@ mathjax: True
 - [Natural Graph Networks    NIPS 2020](#Natural-Graph-Networks)
 - [Invariant and Equivariant Graph Networks    ICLR 2019](#Invariant-and-Equivariant-Graph-Networks)
 - [E(n) Equivariant Graph Neural Networks   arXive 2021 ***](#E(n)-Equivariant-Graph-Neural-Networks)
+- [Harmonic Networks: Deep Translation and Rotation Equivariance](#Harmonic-Networks:-Deep-Translation-and-Rotation-Equivariance)
 
 
 
@@ -331,6 +334,44 @@ adding —— shearing and resizing, 改变卷积顺序
 
 
 
+### A Kernel Theory of Modern Data Augmentation
+
+
+
+#### 摘要
+
+![image-20210414132400889](img/image-20210414132400889.png)
+
+#### 主要机制
+
+In the field of deep learning, for example, data augmentation is commonly understood to act as a regularizer by increasing the number of data points and constraining the model.
+
+- Markov process
+
+- kernel classifier
+
+  (i) an averaged version of the transformed features, and
+
+  (ii) a data-dependent variance regularization term
+
+data augmentation not only affects the model by increasing invariance to specic transformations, but also by reducing the variance of the estimator.
+
+
+
+##### Data Augmentation as a Kernel
+
+
+
+##### Invariance and Regularization
+
+
+
+
+
+
+
+
+
 
 
 # Graph Network
@@ -350,6 +391,12 @@ adding —— shearing and resizing, 改变卷积顺序
 
 
 
+
+## Adaptive Graph Encoder for Attributed Graph Embedding
+
+
+
+#### 摘要
 
 
 
@@ -696,6 +743,20 @@ The Bridgeness index of an edge e(u, v) is defined as
 #### 摘要
 
 ![image-20210304104501862](img/image-20210304104501862.png)
+
+
+
+## Harmonic Networks: Deep Translation and Rotation Equivariance
+
+
+
+#### 摘要
+
+![image-20210425161159083](img/image-20210425161159083.png)
+
+
+
+http://visual.cs.ucl.ac.uk/pubs/harmonicNets/
 
 
 
